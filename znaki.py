@@ -13,13 +13,13 @@ osi = "01110100011000101110100011000101110"
 dzi = "01110100011000101111000011000101110"
 #      12345123451234512345123451234512345
 
-def znak(dn, sx, zn): # dn - numer wyświetlacza, sx - przesunięcie w prawo o ilość pixeli, zn - znak do wyświetlenia
+def znak(sx, zn): # dn - numer wyświetlacza, sx - przesunięcie w prawo o ilość pixeli, zn - znak do wyświetlenia
     z = 0
     for y in range(1,8,1):
         for x in range(5):
-            if dn == 1:
+            if sx+x <= 15:
                 display1.set_pixel(sx+x, y, int(zn[z]))
-            elif dn == 2:
-                display2.set_pixel(sx+x, y, int(zn[z]))
+            elif sx+x > 15:
+                display2.set_pixel(sx+x-15, y, int(zn[z]))
             z = z + 1
 
